@@ -28,9 +28,8 @@ class PdfServiceProvider extends ServiceProvider {
 	 */
 	public function register()
 	{
-		$this->app['pdf'] = $this->app->share(function($app)
-		{
-			return new Pdf;
+		$this->app->singleton('pdf', function ($app) {
+		   return new Pdf;
 		});
 	}
 
